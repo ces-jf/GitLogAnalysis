@@ -1,0 +1,20 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace GitLogAnalysis.Core.SharedKernel.Entities
+{
+    public class ResponseObject<T>
+    {
+        public bool Success { get; set; }
+        public string Message { get; set; }
+        public T Object { get; set; }
+
+        public ResponseObject(bool success, string message = "", dynamic obj = null)
+        {
+            Success = success;
+            Message = message;
+            Object = obj;
+        }
+    }
+}

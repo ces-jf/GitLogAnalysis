@@ -1,0 +1,14 @@
+<div class="form-aprovado">
+  <form #resultForm=ngForm style="width: 400px;" (ngSubmit)=exibirResultados() class="form-signin">
+    <h1 class="h3 mb-3 font-weight-normal">Insira o Numero de Vagas</h1>
+
+    <div class="form-group">
+      <input type="number" class="form-control"
+        onkeypress="return event.charCode >= 48 && event.charCode <= 57" required
+        name="numVagas" [(ngModel)]="numVagas" placeholder="Numero de Vagas">
+    </div>
+
+    <button class="btn btn-lg btn-primary" type="submit">Calcular</button>
+    <button class="btn btn-default" type="button" (click)="cancel()">Cancelar</button>
+  </form>
+</div>
