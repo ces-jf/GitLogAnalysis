@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Candidato } from '../candidato.model';
 import { CandidatoListComponent } from '../candidato-list/candidato-list.component';
 import { Router, ActivatedRoute } from '@angular/router';
-import { CandidatoServiceService } from '../candidatoService.service';
+import { CandidatoServiceService } from '../services/candidatoService.service';
 
 @Component({
   selector: 'app-candidato-details',

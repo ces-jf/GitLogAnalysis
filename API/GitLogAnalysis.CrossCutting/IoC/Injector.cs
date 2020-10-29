@@ -26,7 +26,7 @@ namespace GitLogAnalysis.CrossCutting.IoC
                 x.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 
             // Unity Of Work
-            services.AddScoped<IUnitOfWork, UnityOfWork>();
+            services.AddScoped<IUnityOfWork, UnityOfWork>();
 
             // Services
             services.AddScoped<IReleaseDataService, ReleaseDataService>();

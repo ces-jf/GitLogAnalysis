@@ -9,6 +9,11 @@ import { CandidatoUpdateComponent } from './candidato-update/candidato-update.co
 import { CandidatoDetailsComponent } from './candidato-details/candidato-details.component';
 import { FormsModule } from '@angular/forms';
 import { CandidatoCalcularComponent } from './candidato-calcular/candidato-calcular.component';
+import { GitlogCreateReleaseComponent } from './pages/gitlog-create-release/gitlog-create-release.component';
+import { GitlogCompareReleasesComponent } from './pages/gitlog-compare-releases/gitlog-compare-releases.component';
+import { GitlogReleaseListComponent } from './pages/gitlog-release-list/gitlog-release-list.component';
+import { GitlogReleaseDetailsComponent } from './pages/gitlog-release-details/gitlog-release-details.component';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
    declarations: [
@@ -18,13 +23,18 @@ import { CandidatoCalcularComponent } from './candidato-calcular/candidato-calcu
       CandidatoUpdateComponent,
       CandidatoDetailsComponent,
       CandidatoCalcularComponent,
-      CandidatoCalcularComponent
+      CandidatoCalcularComponent,
+      GitlogCreateReleaseComponent,
+      GitlogCompareReleasesComponent,
+      GitlogReleaseListComponent,
+      GitlogReleaseDetailsComponent
    ],
    imports: [
       BrowserModule,
       AppRoutingModule,
       HttpClientModule,
-      FormsModule
+      FormsModule,
+      NgSelectModule
    ],
    providers: [],
    bootstrap: [

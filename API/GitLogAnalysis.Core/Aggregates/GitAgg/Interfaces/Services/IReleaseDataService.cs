@@ -10,9 +10,9 @@ namespace GitLogAnalysis.Core.Aggregates.GitAgg.Interfaces.Services
     {
         IEnumerable<ReleaseData> GetAllReleases();
         ReleaseData CreateRelease(ReleaseData release);
-        ReleaseData GetReleasyById(int idRelease);
+        ReleaseData GetReleaseById(int idRelease);
         void Delete(int idRelease);
         ReleaseData UpdateRelease(ReleaseData release);
-        ReleaseData GetReleaseStats(FrontParams frontParams);
+        ResponseObject<ReleaseData> GetReleaseStats(FrontParams frontParams);
     }
 }

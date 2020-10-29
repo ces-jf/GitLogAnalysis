@@ -1,7 +1,7 @@
 import { Candidato } from '../candidato.model';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { CandidatoServiceService } from '../candidatoService.service';
+import { CandidatoServiceService } from '../services/candidatoService.service';
 
 @Component({
   selector: 'app-candidato-create',
@@ -14,8 +14,9 @@ export class CandidatoCreateComponent implements OnInit {
 
   submitted = false;
 
-  constructor(private candidatoService: CandidatoServiceService,
-    private router: Router) { }
+  constructor(
+    private candidatoService: CandidatoServiceService,
+    private router: Router ) { }
 
   ngOnInit() {
   }

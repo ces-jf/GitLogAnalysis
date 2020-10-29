@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GitLogAnalysis.Core.SharedKernel.Interfaces.UoW
 {
-    public interface IUnitOfWork
+    public interface IUnityOfWork
     {
         bool Commit();
     }

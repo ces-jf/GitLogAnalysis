@@ -8,7 +8,7 @@ using System.Text;
 
 namespace GitLogAnalysis.Infra.Data.UoW
 {
-    public class UnityOfWork : IUnitOfWork
+    public class UnityOfWork : IUnityOfWork
     {
         protected readonly DataContext DbContext;
         public UnityOfWork(DataContext dbContext)

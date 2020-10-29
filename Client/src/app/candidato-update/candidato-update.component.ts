@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Candidato } from '../candidato.model';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CandidatoServiceService } from '../candidatoService.service';
+import { CandidatoServiceService } from '../services/candidatoService.service';
 
 @Component({
   selector: 'app-candidato-update',

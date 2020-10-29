@@ -1,0 +1,32 @@
+<h3>Create Release</h3>
+<div [hidden]="submitted" style="width: 400px;">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Release Name</label>
+      <input type="text" class="form-control" id="releasename" required [(ngModel)]="frontP.releaseName" name="Name">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Initial Date</label>
+      <input type="datetime" class="form-control" id="initialdate" required [(ngModel)]="frontP.initialDate" name="InitialDate">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Final Date</label>
+      <input type="datetime" class="form-control" id="finaldate" required [(ngModel)]="frontP.finalDate" name="FinalDate">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Folder Path</label>
+      <input type="text" class="form-control" id="finaldate" required [(ngModel)]="frontP.folderPath" name="FolderPath">
+    </div>
+    
+
+    <button type="submit" class="btn btn-success">Save</button>
+  </form>
+</div>
+
+<div [hidden]="!submitted">
+  <h4>Feito com sucesso!</h4>
+  <!-- <button class="btn btn-success" (click)="newCandidato()">Add</button> -->
+</div>

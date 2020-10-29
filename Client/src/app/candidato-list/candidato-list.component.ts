@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Observable } from "rxjs";
-import { CandidatoServiceService } from "../candidatoService.service";
+import { CandidatoServiceService } from "../services/candidatoService.service";
 import { Candidato } from "../candidato.model";
 import { Router } from "@angular/router";
 

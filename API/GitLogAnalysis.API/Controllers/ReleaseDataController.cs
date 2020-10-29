@@ -27,17 +27,31 @@ namespace GitLogAnalysis.API.Controllers
                 return Ok(result);
             return BadRequest();
         }
-
-
-        [HttpPost]
-        public IActionResult Main(FrontParams frontParams)
+        [HttpGet("{id}")]
+        public IActionResult GetReleasesById([FromRoute] int id)
         {
-            var result = _releaseDataService.GetReleaseStats(frontParams);
-
-           // var resulta = _releaseDataService.GetAllReleases();
+            var result = _releaseDataService.GetReleaseById(id);
             if (result != null)
                 return Ok(result);
             return BadRequest();
+        }
+
+
+        [HttpPost("CreateRelease")]
+        public IActionResult Main([FromBody]FrontParams frontParams)
+        {
+            var result = _releaseDataService.GetReleaseStats(frontParams);
+            
+            if (result.Success)
+            {
+                return Created("/ReleaseData", result.Object);
+            }
+
+            if (result.Message != null)
+            {
+                return BadRequest(new { error = result.Message });
+            }
+            return StatusCode(500);
         }
 
 
