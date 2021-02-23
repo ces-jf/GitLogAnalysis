@@ -54,16 +54,19 @@ namespace GitLogAnalysis.Core.Aggregates.GitAgg.Services
         public ResponseObject<ReleaseData> GetReleaseStats(FrontParams frontParams)
         {
 
-            string directory = "Z:/MeusArquivos/Faculdade/TCC/Torvalds/linux"; // directory of the git repository
-            frontParams.InitialDate = new DateTime(2020, 05, 13);
-            frontParams.FinalDate = new DateTime(2020, 05, 17);
-            frontParams.FolderPath = directory;
+            //string directory = "Z:/MeusArquivos/Faculdade/TCC/Torvalds/linux"; // directory of the git repository
+            // frontParams.InitialDate = new DateTime(2020, 05, 13);
+            //frontParams.FinalDate = new DateTime(2020, 05, 17);
+            //frontParams.FolderPath = directory;
 
             var initialDate = frontParams.InitialDate.ToString("yyyy-MM-dd");
             var finalDate = frontParams.FinalDate.ToString("yyyy-MM-dd");
             var before = $@"--until ""{finalDate}""";
             var after = $@"--since ""{initialDate}""";
             var dateFormat = $@"--date=format:'%Y-%m-%d %H:%M:%S'";
+            var directory = frontParams.FolderPath;
+            directory = Regex.Replace(frontParams.FolderPath, @"[\\]", "/");
+
 
             using (PowerShell powershell = PowerShell.Create())
             {

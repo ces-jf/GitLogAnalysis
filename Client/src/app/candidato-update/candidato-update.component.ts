@@ -17,7 +17,7 @@ export class CandidatoUpdateComponent implements OnInit {
               private candidatoService: CandidatoServiceService) { }
 
   ngOnInit() {
-    this.id = this.route.snapshot.params['id'];
+    this.id = this.route.snapshot.params.id;
     this.candidatoService.get(this.id)
       .subscribe(data => {
         console.log(data);

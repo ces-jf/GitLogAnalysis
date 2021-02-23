@@ -14,7 +14,7 @@ export class CandidatoCalcularComponent implements OnInit {
   constructor(
     private candidatoService: CandidatoServiceService,
     private router: Router) { }
-  
+
 
   ngOnInit() {
   }

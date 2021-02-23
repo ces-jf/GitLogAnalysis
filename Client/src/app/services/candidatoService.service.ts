@@ -19,11 +19,11 @@ export class CandidatoServiceService {
     return this.http.get(`${this.url}/${id}`);
   }
 
-  createCandidato(candidato: Candidato): Observable<Object> {
+  createCandidato(candidato: Candidato): Observable<any> {
     return this.http.post(`${this.url}`, candidato);
   }
 
-  updateCandidato(id: number, value: any): Observable<Object> {
+  updateCandidato(id: number, value: any): Observable<any> {
     return this.http.put(`${this.url}`, value);
   }
 

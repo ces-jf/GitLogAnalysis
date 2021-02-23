@@ -30,7 +30,6 @@ export class GitlogCreateReleaseComponent implements OnInit {
   save() {
     this.releaseService.createRelease(this.frontP)
       .subscribe(data => {
-        debugger
         console.log(data),
           this.frontP = new FrontParams();
         this.gotoList();

@@ -14,7 +14,7 @@ import { GitlogReleaseDetailsComponent } from './pages/gitlog-release-details/gi
 const routes: Routes = [
   { path: 'candidato-list', component: CandidatoListComponent },
   { path: 'candidato-create', component: CandidatoCreateComponent },
-  { path: '', redirectTo: 'candidatos', pathMatch: 'full' },
+  { path: '', redirectTo: 'releaseList', pathMatch: 'full' },
   { path: 'candidato', component: CandidatoListComponent },
   { path: 'candidatos', component: CandidatoListComponent },
   { path: 'add', component: CandidatoCreateComponent },

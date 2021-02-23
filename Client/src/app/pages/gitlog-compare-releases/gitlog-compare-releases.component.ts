@@ -43,7 +43,7 @@ export class GitlogCompareReleasesComponent implements OnInit {
       this.comparative.addedLines = this.firstRelease.addedLines - this.secondRelease.addedLines;
       this.comparative.removedLines = this.firstRelease.removedLines - this.secondRelease.removedLines;
       this.comparative.authors = this.firstRelease.authors - this.secondRelease.authors;
-    };
+    }
     console.log(obj);
   }
 }
