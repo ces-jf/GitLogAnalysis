@@ -23,13 +23,14 @@ namespace GitLogAnalysis.CrossCutting.IoC
             services.AddScoped<DataContext>();
 
             services.AddDbContext<DataContext>(x =>
-                x.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+                x.UseMySql(configuration.GetConnectionString("MySQLConnection")));
 
             // Unity Of Work
             services.AddScoped<IUnityOfWork, UnityOfWork>();
 
             // Services
             services.AddScoped<IReleaseDataService, ReleaseDataService>();
+            services.AddScoped<IProjectService, ProjectService>();
             //services.AddScoped<IAuthService, AuthService>();
             //services.AddScoped<IUserService, UserService>();
             //services.AddScoped<IProfileService, ProfileService>();
@@ -41,6 +42,7 @@ namespace GitLogAnalysis.CrossCutting.IoC
 
             // Repositories
             services.AddScoped<IReleaseDataRepository, ReleaseDataRepository>();
+            services.AddScoped<IProjectRepository, ProjectRepository>();
             //services.AddScoped<IProfileRepository, ProfileRepository>();
             //services.AddScoped<IFunctionalityRepository, FunctionalityRepository>();
             //services.AddScoped<IEventRepository, EventRepository>();

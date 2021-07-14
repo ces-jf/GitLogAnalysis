@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FrontParams } from 'src/app/models/frontParams.model';
-import { Release } from '../../models/release.model';
-import { ReleaseService } from '../../services/release.service';
+import { ProjectService } from 'src/app/services/project.service';
+import { Release } from '../../../models/release.model';
+import { ReleaseService } from '../../../services/release.service';
 
 @Component({
   selector: 'app-gitlog-create-release',
@@ -12,14 +13,17 @@ import { ReleaseService } from '../../services/release.service';
 export class GitlogCreateReleaseComponent implements OnInit {
 
   frontP: FrontParams = new FrontParams();
+  projects: any;
 
   submitted = false;
 
   constructor(
+    private projectService: ProjectService,
     private releaseService: ReleaseService,
-    private router: Router ) { }
+    private router: Router) { }
 
   ngOnInit() {
+    this.getProjects();
   }
 
   newRelease(): void {
@@ -27,13 +31,19 @@ export class GitlogCreateReleaseComponent implements OnInit {
     this.frontP = new FrontParams();
   }
 
+  getProjects() {
+    this.projectService.getAllProjects()
+      .subscribe(data => {
+        this.projects = data;
+      })
+  }
+
   save() {
     this.releaseService.createRelease(this.frontP)
       .subscribe(data => {
-        console.log(data),
-          this.frontP = new FrontParams();
+        this.frontP = new FrontParams();
         this.gotoList();
-      }, error => console.log(error));
+      }, error => { });
 
   }
   onSubmit() {

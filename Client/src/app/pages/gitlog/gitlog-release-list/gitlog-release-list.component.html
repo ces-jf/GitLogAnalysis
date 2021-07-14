@@ -1,0 +1,44 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2>Releases List</h2>
+  </div>
+
+  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 selects">
+    <label>Project:</label>
+    <ng-select [(ngModel)]="projetoBD" (ngModelChange)="reloadData($event)" (clear)="getProjects(); releases=null"
+      (click)="getProjects()" placeholder="Selecione o projeto" name="Project">
+      <ng-option *ngFor="let project of projects" [value]="project">
+        {{project.projectName}}</ng-option>
+    </ng-select>
+  </div>
+
+  <div class="panel-body">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Initial Date</th>
+          <th>Final Date</th>
+          <th>Status</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let release of releases">
+          <td>{{release.releaseName}}</td>
+          <td>{{release.initialDate | date: 'dd/MM/yyyy HH:mm'}}</td>
+          <td>{{release.finalDate | date: 'dd/MM/yyyy HH:mm'}}</td>
+          <td>{{release.active == true ? "Active" : "Inactive"}}</td>
+          <td>
+            <button (click)="releaseDetails(release.id)" class="btn btn-info">Detalhes</button>
+            <!-- <button (click)="updateCandidato(release.id)" class="btn btn-warning" style="margin-left: 10px">Editar</button> -->
+            <!-- <button (click)="releaseDelete(release.id)" class="btn btn-danger" style="margin-left: 10px">Deletar</button> -->
+          </td>
+        </tr>
+        <tr [hidden]="releases !== null">
+          <td colspan="5" class="text-center"><strong>None</strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

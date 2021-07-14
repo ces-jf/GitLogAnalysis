@@ -1,0 +1,29 @@
+commit 50cea1df655b964bc8de499505fdadb29fc192c5
+Author: gabrielrigolon <44919590+gabrielrigolon@users.noreply.github.com>
+Date:   Tue Feb 23 19:24:21 2021 -0300
+
+    apresentacao 2021_02
+
+commit 5e04634014f82f4bd526c849c613f938b5f287a1
+Author: gabrielrigolon <44919590+gabrielrigolon@users.noreply.github.com>
+Date:   Thu Oct 29 01:30:29 2020 -0300
+
+    finalizada a primeira versão do sistema
+
+commit 3e277363a57c366d552ae3aeb5526989d4f58c36
+Author: gabrielrigolon <44919590+gabrielrigolon@users.noreply.github.com>
+Date:   Sun Oct 25 16:43:38 2020 -0300
+
+    Feito commit inicial com a aplicação de TCC
+
+commit dd197c1520b28879c7bc5f8c0cfb77512da9732f
+Author: Gabriel Rigolon Silva <44919590+gabrielrigolon@users.noreply.github.com>
+Date:   Sun Oct 25 16:35:37 2020 -0300
+
+    Update .gitignore
+
+commit df173938ff996299d80b68df35dc40f0399b2078
+Author: Gabriel Rigolon Silva <44919590+gabrielrigolon@users.noreply.github.com>
+Date:   Sun Oct 25 16:30:29 2020 -0300
+
+    Initial commit

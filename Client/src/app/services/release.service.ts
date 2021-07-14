@@ -26,6 +26,10 @@ public getById(id: number): Observable<any> {
   return this.get(`${this.urlRelease}/${id}`);
 }
 
+public getReleaseByProject(idProject: number): Observable<any> {
+  return this.get(`${this.urlRelease}/getReleaseByProject/${idProject}`);
+}
+
 public createRelease(forntP: any) {
   return this.post(`${this.urlRelease}/CreateRelease`, forntP);
 }

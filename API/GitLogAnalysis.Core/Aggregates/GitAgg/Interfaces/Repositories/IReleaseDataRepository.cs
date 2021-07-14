@@ -8,6 +8,6 @@ namespace GitLogAnalysis.Core.Aggregates.GitAgg.Interfaces.Repositories
 {
     public interface IReleaseDataRepository : IRepository<ReleaseData>
     {
-
+        IEnumerable<ReleaseData> GetReleaseByProject(int idProject);
     }
 }

@@ -5,4 +5,5 @@ export class FrontParams {
     finalDate: Date;
     sDateInitial: string;
     sDateFinal: string;
+    ProjectData: any;
 }

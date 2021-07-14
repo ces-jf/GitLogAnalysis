@@ -64,9 +64,8 @@ namespace GitLogAnalysis.Core.Aggregates.GitAgg.Services
             var before = $@"--until ""{finalDate}""";
             var after = $@"--since ""{initialDate}""";
             var dateFormat = $@"--date=format:'%Y-%m-%d %H:%M:%S'";
-            var directory = frontParams.FolderPath;
-            directory = Regex.Replace(frontParams.FolderPath, @"[\\]", "/");
-
+            var directory = Regex.Replace(frontParams.ProjectData.Directory, @"[\\]", "/");
+           
 
             using (PowerShell powershell = PowerShell.Create())
             {
@@ -135,6 +134,8 @@ namespace GitLogAnalysis.Core.Aggregates.GitAgg.Services
                 AddedLines = addedLines,
                 Commits = objectList.Count,
                 ReleaseName = frontParams.ReleaseName,
+                IdProject = frontParams.ProjectData.Id
+
             };
             _releaseDataRepository.Create(release);
             var commit = _unityOfWork.Commit();
@@ -188,6 +189,13 @@ namespace GitLogAnalysis.Core.Aggregates.GitAgg.Services
         {
             var release = _releaseDataRepository.GetById(idRelease);
 
+            return release;
+        }
+
+        public IEnumerable<ReleaseData> GetReleaseByProject(int idProject)
+        {
+            var release = _releaseDataRepository.GetReleaseByProject(idProject);
+            
             return release;
         }
 

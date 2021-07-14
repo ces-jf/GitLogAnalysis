@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Release } from '../../models/release.model';
-import { ReleaseService } from '../../services/release.service';
+import { Release } from '../../../models/release.model';
+import { ReleaseService } from '../../../services/release.service';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ProjectService } from 'src/app/services/project.service';
+import { Project } from 'src/app/models/project.model';
+import { isNullOrUndefined } from 'util';
 
 @Component({
   selector: 'app-gitlog-release-list',
@@ -12,9 +15,11 @@ import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 export class GitlogReleaseListComponent implements OnInit {
   releases: Release[] = [];
   private modalRef;
+  projects: any;
+  projetoBD: Project;
 
   constructor(
-
+    private projectService: ProjectService,
     private releaseService: ReleaseService,
     private router: Router,
     // public modal: NgbActiveModal,
@@ -22,13 +27,25 @@ export class GitlogReleaseListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.reloadData();
+    this.getProjects();
+    this.releases=null;
   }
 
-  reloadData() {
-    this.releaseService.getAllReleases().subscribe(response => {
-      this.releases = response;
-    });
+  reloadData(obj: any) {
+    if (isNullOrUndefined(obj) || obj.id === 0) {
+      this.releases = null;
+    } else {
+      this.releaseService.getReleaseByProject(obj.id).subscribe(response => {
+        this.releases = isNullOrUndefined(response) || response === [] ? null : response;
+      });
+    }
+  }
+
+  public getProjects() {
+    this.projectService.getAllProjects()
+      .subscribe(data => {
+        this.projects = data;
+      }, error => {});
   }
 
   //  deleteCandidato(id: number) {

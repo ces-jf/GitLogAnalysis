@@ -9,11 +9,13 @@ import { CandidatoUpdateComponent } from './candidato-update/candidato-update.co
 import { CandidatoDetailsComponent } from './candidato-details/candidato-details.component';
 import { FormsModule } from '@angular/forms';
 import { CandidatoCalcularComponent } from './candidato-calcular/candidato-calcular.component';
-import { GitlogCreateReleaseComponent } from './pages/gitlog-create-release/gitlog-create-release.component';
-import { GitlogCompareReleasesComponent } from './pages/gitlog-compare-releases/gitlog-compare-releases.component';
-import { GitlogReleaseListComponent } from './pages/gitlog-release-list/gitlog-release-list.component';
-import { GitlogReleaseDetailsComponent } from './pages/gitlog-release-details/gitlog-release-details.component';
+import { GitlogCreateReleaseComponent } from './pages/gitlog/gitlog-create-release/gitlog-create-release.component';
+import { GitlogCompareReleasesComponent } from './pages/gitlog/gitlog-compare-releases/gitlog-compare-releases.component';
+import { GitlogReleaseListComponent } from './pages/gitlog/gitlog-release-list/gitlog-release-list.component';
+import { GitlogReleaseDetailsComponent } from './pages/gitlog/gitlog-release-details/gitlog-release-details.component';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { ProjectCreateComponent } from './pages/project/project-create/project-create.component';
+import { ProjectListComponent } from './pages/project/project-list/project-list.component';
 
 @NgModule({
    declarations: [
@@ -27,7 +29,9 @@ import { NgSelectModule } from '@ng-select/ng-select';
       GitlogCreateReleaseComponent,
       GitlogCompareReleasesComponent,
       GitlogReleaseListComponent,
-      GitlogReleaseDetailsComponent
+      GitlogReleaseDetailsComponent,
+      ProjectCreateComponent,
+      ProjectListComponent
    ],
    imports: [
       BrowserModule,

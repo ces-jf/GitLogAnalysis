@@ -37,6 +37,16 @@ namespace GitLogAnalysis.API.Controllers
         }
 
 
+        [HttpGet("getReleaseByProject/{idProject}")]
+        public IActionResult GetReleasesByProject([FromRoute] int idProject)
+        {
+            var result = _releaseDataService.GetReleaseByProject(idProject);
+            if (result != null)
+                return Ok(result);
+            return BadRequest();
+        }
+
+
         [HttpPost("CreateRelease")]
         public IActionResult Main([FromBody]FrontParams frontParams)
         {

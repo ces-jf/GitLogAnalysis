@@ -23,10 +23,13 @@ export class GitlogReleaseDetailsComponent implements OnInit {
     this.id = this.route.snapshot.params.id;
     this.releaseService.getById(this.id)
       .subscribe(data => {
-        console.log(data);
         this.release = data;
-      }, error => console.log(error));
+      }, error => {});
 
+  }
+
+  releaseList() {
+    this.router.navigate(["releaseList"]);
   }
 
 

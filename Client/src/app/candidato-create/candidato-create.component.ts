@@ -1,7 +1,7 @@
 import { Candidato } from '../candidato.model';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { CandidatoServiceService } from '../services/candidatoService.service';
+// import { CandidatoServiceService } from '../services/candidatoService.service';
 
 @Component({
   selector: 'app-candidato-create',
@@ -15,31 +15,35 @@ export class CandidatoCreateComponent implements OnInit {
   submitted = false;
 
   constructor(
-    private candidatoService: CandidatoServiceService,
+    //private candidatoService: CandidatoServiceService,
     private router: Router ) { }
-
-  ngOnInit() {
+    
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
   }
 
-  newCandidato(): void {
-    this.submitted = false;
-    this.candidato = new Candidato();
-  }
+  // ngOnInit() {
+  // }
 
-  save() {
-    this.candidatoService.createCandidato(this.candidato)
-      .subscribe(data => {
-        console.log(data),
-          this.candidato = new Candidato();
-        this.gotoList();
-      }, error => console.log(error));
+  // newCandidato(): void {
+  //   this.submitted = false;
+  //   this.candidato = new Candidato();
+  // }
 
-  }
-  onSubmit() {
-    this.submitted = true;
-    this.save();
-  }
-  gotoList() {
-    this.router.navigate(['/candidato']);
-  }
+  // save() {
+  //   this.candidatoService.createCandidato(this.candidato)
+  //     .subscribe(data => {
+  //       console.log(data),
+  //         this.candidato = new Candidato();
+  //       this.gotoList();
+  //     }, error => console.log(error));
+
+  // }
+  // onSubmit() {
+  //   this.submitted = true;
+  //   this.save();
+  // }
+  // gotoList() {
+  //   this.router.navigate(['/candidato']);
+  // }
 }

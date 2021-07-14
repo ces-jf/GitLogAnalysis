@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Observable } from "rxjs";
-import { CandidatoServiceService } from "../services/candidatoService.service";
+// import { CandidatoServiceService } from "../services/candidatoService.service";
 import { Candidato } from "../candidato.model";
 import { Router } from "@angular/router";
 
@@ -13,7 +13,7 @@ export class CandidatoListComponent implements OnInit {
   responseUsers: Candidato[] = [];
 
   constructor(
-    private candidatoService: CandidatoServiceService,
+    // private candidatoService: CandidatoServiceService,
     private router: Router
   ) {}
 
@@ -22,30 +22,30 @@ export class CandidatoListComponent implements OnInit {
   }
 
   reloadData() {
-    this.candidatoService.getUsers().subscribe(response => {
-      this.responseUsers = response;
-    });
+    // this.candidatoService.getUsers().subscribe(response => {
+    //   this.responseUsers = response;
+    // });
   }
 
-  deleteCandidato(id: number) {
-    this.candidatoService.deleteCandidato(id).subscribe(
-      data => {
-        console.log(data);
-        this.reloadData();
-      },
-      error => console.log(error)
-    );
-  }
+  // deleteCandidato(id: number) {
+  //   this.candidatoService.deleteCandidato(id).subscribe(
+  //     data => {
+  //       console.log(data);
+  //       this.reloadData();
+  //     },
+  //     error => console.log(error)
+  //   );
+  // }
 
-  get(id: number) {
-    this.router.navigate(["details", id]);
-  }
+  // get(id: number) {
+  //   this.router.navigate(["details", id]);
+  // }
 
-  detailsCandidato(id: number) {
-    this.router.navigate(["details", id]);
-  }
+  // detailsCandidato(id: number) {
+  //   this.router.navigate(["details", id]);
+  // }
 
-  updateCandidato(id: number) {
-    this.router.navigate(["update", id]);
-  }
+  // updateCandidato(id: number) {
+  //   this.router.navigate(["update", id]);
+  // }
 }

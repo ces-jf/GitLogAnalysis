@@ -1,15 +1,43 @@
 <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
     <!-- Links -->
     <ul class="navbar-nav">
-      <li class="nav-item">
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Management
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" routerLink="projectCreate" routerLinkActive="active">Create Project</a>
+          <a class="dropdown-item" routerLink="releaseCreate" routerLinkActive="active">Create Release</a>
+        </div>
+      </li>
+      
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Analytics
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" routerLink="projectList" routerLinkActive="active">Projects List</a>
+          <a class="dropdown-item" routerLink="releaseList" routerLinkActive="active">Releases List</a>
+          <a class="dropdown-item" routerLink="releaseCompare" routerLinkActive="active">Compare Releases</a>
+        </div>
+      </li>
+
+      <!-- <li class="nav-item">
           <a routerLink="releaseList" class="nav-link" routerLinkActive="active">Releases List</a>
-      </li>
-      <li class="nav-item">
+      </li> -->
+      <!-- <li class="nav-item">
           <a routerLink="releaseCreate" class="nav-link" routerLinkActive="active">Add Release</a>
-      </li>
-      <li class="nav-item">
+      </li> -->
+      <!-- <li class="nav-item">
         <a routerLink="releaseCompare" class="nav-link" routerLinkActive="active">Compare Releases</a>
-    </li>
+      </li> -->
+      <!-- <li class="nav-item">
+        <a routerLink="projectCreate" class="nav-link" routerLinkActive="active">Create Project</a>
+      </li> -->
+      <!-- <li class="nav-item">
+        <a routerLink="projectList" class="nav-link" routerLinkActive="active">Projects List</a>
+      </li> -->
     </ul>
   </nav>
   <div class="container">
@@ -25,6 +53,6 @@
   
   <footer class="footer">
     <div class="container">
-        <span>GitLogAnalysis @2020</span>
+        <span>GitLogAnalysis @2021</span>
     </div>
   </footer>

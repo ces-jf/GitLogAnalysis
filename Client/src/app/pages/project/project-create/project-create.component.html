@@ -1,0 +1,26 @@
+<h3>Create Project</h3>
+<div [hidden]="submitted" style="width: 400px;">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Project Name</label>
+      <input type="text" class="form-control" id="projectname" required [(ngModel)]="projectP.projectName" name="ProjectName">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Description</label>
+      <input type="datetime" class="form-control" id="desc" required [(ngModel)]="projectP.description" name="Description">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Folder Path</label>
+      <input type="text" class="form-control" id="dir" required [(ngModel)]="projectP.directory" name="Directory">
+    </div>
+    
+    <button type="submit" class="btn btn-success">Save</button>
+  </form>
+</div>
+
+<!-- <div *ngIf="!submitted">
+  <h4>Feito com sucesso!</h4>
+  <button class="btn btn-success" (click)="newCandidato()">Add</button>
+</div> -->

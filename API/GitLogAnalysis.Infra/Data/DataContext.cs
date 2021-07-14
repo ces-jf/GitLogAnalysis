@@ -12,12 +12,13 @@ namespace GitLogAnalysis.Infra.Data
         public DataContext(DbContextOptions<DataContext> options) : base(options) { }
 
         public DbSet<ReleaseData> ReleasesData { get; set; }
+       // public DbSet<Project> Projects { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new ReleaseDataMap());
-            //modelBuilder.ApplyConfiguration(new ProfileMap());
+            //modelBuilder.ApplyConfiguration(new ProjectMap());
             //modelBuilder.ApplyConfiguration(new FunctionalityMap());
             //modelBuilder.ApplyConfiguration(new ProfileFunctionalityMap());
             //modelBuilder.ApplyConfiguration(new EventMap());

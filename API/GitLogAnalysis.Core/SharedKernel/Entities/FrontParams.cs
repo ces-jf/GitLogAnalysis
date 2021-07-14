@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GitLogAnalysis.Core.Aggregates.GitAgg.Entities;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -11,6 +12,7 @@ namespace GitLogAnalysis.Core.SharedKernel.Entities
         public DateTime FinalDate { get; set; }
         public string ReleaseName { get; set; }
         public string FolderPath { get; set; }
+        public Project ProjectData { get; set; }
 
 
     }

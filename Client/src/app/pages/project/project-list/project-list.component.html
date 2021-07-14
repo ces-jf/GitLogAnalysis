@@ -1,0 +1,29 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2>Projects List</h2>
+  </div>
+  <div class="panel-body">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Directory</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let project of projects">
+              <td>{{project.projectName}}</td>
+              <td>{{project.description }}</td>
+              <td>{{project.directory }}</td>
+              <!-- <td>{{project.active == true ? "Active" : "Inactive"}}</td> -->
+              <!-- <td> -->
+              <!-- <button (click)="releaseDetails(release.id)" class="btn btn-info">Detalhes</button> -->
+              <!-- <button (click)="updateCandidato(release.id)" class="btn btn-warning" style="margin-left: 10px">Editar</button> -->
+              <!-- <button (click)="releaseDelete(release.id)" class="btn btn-danger" style="margin-left: 10px">Deletar</button> -->
+              <!-- </td> -->
+            </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

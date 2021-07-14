@@ -36,12 +36,14 @@ namespace GitLogAnalysis.Infra.Data.Mappings
                 .HasColumnName("NR_COMMITS");
 
             builder.Property(x => x.InitialDate)
-                .IsRequired(false)
-                .HasColumnName("DT_INITIAL");
+                .IsRequired(true)
+                .HasColumnName("DT_INITIAL")
+                .HasColumnType("datetime");
 
             builder.Property(x => x.FinalDate)
-                .IsRequired(false)
-                .HasColumnName("DT_FINAL");
+                .IsRequired(true)
+                .HasColumnName("DT_FINAL")
+                .HasColumnType("datetime");
 
             builder.Property(x => x.AddedLines)
                 .IsRequired(false)
@@ -50,6 +52,15 @@ namespace GitLogAnalysis.Infra.Data.Mappings
             builder.Property(x => x.RemovedLines)
                 .IsRequired(false)
                 .HasColumnName("NR_REMOVED_LINES");
+
+            builder.Property(x => x.IdProject)
+                .IsRequired()
+                .HasColumnName("ID_PROJECT");
+
+            builder.HasOne(x => x.Project)
+                .WithMany(r => r.ReleaseDatas)
+                .HasForeignKey(x => x.IdProject)
+                .IsRequired();
         }
     }
 }

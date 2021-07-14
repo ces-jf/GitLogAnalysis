@@ -3,36 +3,56 @@ using System;
 using GitLogAnalysis.Infra.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace GitLogAnalysis.Infra.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20201021061401_first")]
-    partial class first
+    [Migration("20210714004428_mysql")]
+    partial class mysql
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.1")
-                .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                .HasAnnotation("Relational:MaxIdentifierLength", 64);
+
+            modelBuilder.Entity("GitLogAnalysis.Core.Aggregates.GitAgg.Entities.Project", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Active")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<string>("Directory")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<string>("ProjectName")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Project");
+                });
 
             modelBuilder.Entity("GitLogAnalysis.Core.Aggregates.GitAgg.Entities.ReleaseData", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnName("ID_RELEASE")
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
 
                     b.Property<bool>("Active")
                         .ValueGeneratedOnAdd()
                         .HasColumnName("FL_ACTIVE")
-                        .HasColumnType("bit")
+                        .HasColumnType("tinyint(1)")
                         .HasDefaultValue(true);
 
                     b.Property<int?>("AddedLines")
@@ -47,17 +67,21 @@ namespace GitLogAnalysis.Infra.Migrations
                         .HasColumnName("NR_COMMITS")
                         .HasColumnType("int");
 
-                    b.Property<DateTime?>("FinalDate")
+                    b.Property<DateTime>("FinalDate")
                         .HasColumnName("DT_FINAL")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime");
 
-                    b.Property<DateTime?>("InitialDate")
+                    b.Property<int>("IdProject")
+                        .HasColumnName("ID_PROJECT")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("InitialDate")
                         .HasColumnName("DT_INITIAL")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime");
 
                     b.Property<string>("ReleaseName")
                         .HasColumnName("DS_RELEASE_NAME")
-                        .HasColumnType("nvarchar(50)")
+                        .HasColumnType("varchar(50) CHARACTER SET utf8mb4")
                         .HasMaxLength(50);
 
                     b.Property<int?>("RemovedLines")
@@ -66,7 +90,18 @@ namespace GitLogAnalysis.Infra.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("IdProject");
+
                     b.ToTable("TB_RELEASE_DATA");
+                });
+
+            modelBuilder.Entity("GitLogAnalysis.Core.Aggregates.GitAgg.Entities.ReleaseData", b =>
+                {
+                    b.HasOne("GitLogAnalysis.Core.Aggregates.GitAgg.Entities.Project", "Project")
+                        .WithMany("ReleaseDatas")
+                        .HasForeignKey("IdProject")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

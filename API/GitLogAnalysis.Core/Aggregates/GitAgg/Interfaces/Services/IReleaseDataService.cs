@@ -11,6 +11,7 @@ namespace GitLogAnalysis.Core.Aggregates.GitAgg.Interfaces.Services
         IEnumerable<ReleaseData> GetAllReleases();
         ReleaseData CreateRelease(ReleaseData release);
         ReleaseData GetReleaseById(int idRelease);
+        IEnumerable<ReleaseData> GetReleaseByProject(int idRelease);
         void Delete(int idRelease);
         ReleaseData UpdateRelease(ReleaseData release);
         ResponseObject<ReleaseData> GetReleaseStats(FrontParams frontParams);
