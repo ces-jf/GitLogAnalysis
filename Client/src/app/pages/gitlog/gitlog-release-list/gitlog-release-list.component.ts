@@ -48,19 +48,6 @@ export class GitlogReleaseListComponent implements OnInit {
       }, error => {});
   }
 
-  //  deleteCandidato(id: number) {
-  //   this.releaseService.deleteRelease(id).subscribe(
-  //     data => {
-  //       this.reloadData();
-  //     },
-  //     error => console.log(error)
-  //   );
-  //   }
-
-  //   get(id: number) {
-  //     this.router.navigate(["details", id]);
-  //   }
-
   releaseDetails(id: number) {
     this.router.navigate(["releaseDetails", id]);
   }

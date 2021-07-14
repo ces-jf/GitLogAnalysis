@@ -28,22 +28,4 @@ export class ProjectListComponent implements OnInit {
     });
   }
 
-  //  deleteCandidato(id: number) {
-  //   this.releaseService.deleteRelease(id).subscribe(
-  //     data => {
-  //       this.reloadData();
-  //     },
-  //     error => console.log(error)
-  //   );
-  //   }
-
-  //   get(id: number) {
-  //     this.router.navigate(["details", id]);
-  //   }
-
-  // projectDetails(id: number) {
-  //   this.router.navigate(["releaseDetails", id]);
-  // }
-
-
 }

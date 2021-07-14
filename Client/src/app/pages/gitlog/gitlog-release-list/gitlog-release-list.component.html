@@ -31,8 +31,8 @@
           <td>{{release.active == true ? "Active" : "Inactive"}}</td>
           <td>
             <button (click)="releaseDetails(release.id)" class="btn btn-info">Detalhes</button>
-            <!-- <button (click)="updateCandidato(release.id)" class="btn btn-warning" style="margin-left: 10px">Editar</button> -->
-            <!-- <button (click)="releaseDelete(release.id)" class="btn btn-danger" style="margin-left: 10px">Deletar</button> -->
+            <!-- <button (click)="update(release.id)" class="btn btn-warning" style="margin-left: 10px">Editar</button> -->
+            <!-- <button (click)="release(release.id)" class="btn btn-danger" style="margin-left: 10px">Deletar</button> -->
           </td>
         </tr>
         <tr [hidden]="releases !== null">
