@@ -1,7 +1,7 @@
 # GitLogAnalysis
 Projeto de TCC que analisa dados do GitLog
 
-#Requirements to Run the project (Backend and Frontend)
+## Requirements to Run the project (Backend and Frontend)
  - Install .NET Core 3.1 SDK
  - Install Angular CLI version 8.3.20
  - Install MySQL 8.0.25 (Complete installation, with .NET Connector)
@@ -30,13 +30,13 @@ Install EF Core tools as a global tool running this command.
 dotnet tool install --global dotnet-ef
 ```
 
-Access `GitLogAnalisys.Infra` folder and run this dotnet-ef commands:
+Access `/GitLogAnalisys.Infra/` folder and run this dotnet-ef commands:
 ```bash
 dotnet ef database update
 ```
 
 ## Run API
-Access `GitLogAnalisys.API/` folder and run this dotnet-ef commands:
+Access `/GitLogAnalisys.API/` folder and run this dotnet-ef commands:
 ```bash
 dotnet run
 ```
