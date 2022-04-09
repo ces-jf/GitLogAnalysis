@@ -2,7 +2,8 @@
 Projeto de TCC que analisa dados do GitLog
 
 ## Requirements to Run the project (Backend and Frontend)
- - Install .NET Core 3.1 SDK
+ - Install .NET Core 3.1 SDK [https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-aspnetcore-3.1.22-windows-hosting-bundle-installer]
+ - Install Node [https://nodejs.org/en/download/]
  - Install Angular CLI version 8.3.20
  - Install MySQL 8.0.25 (Complete installation, with .NET Connector - https://dev.mysql.com/downloads/file/?id=505212)
  - Install Microsoft Visual Studio Code
