@@ -8,7 +8,6 @@ namespace GitLogAnalysis.Core.Aggregates.GitAgg.Entities
     public class ReleaseData : Entity
     {
         public string ReleaseName { get; set; }
-        
         public int Authors { get; set; }
         public int Commits { get; set; }
         public DateTime InitialDate { get; set; }

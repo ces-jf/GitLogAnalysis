@@ -6,6 +6,7 @@ import { GitlogReleaseListComponent } from './pages/gitlog/gitlog-release-list/g
 import { GitlogReleaseDetailsComponent } from './pages/gitlog/gitlog-release-details/gitlog-release-details.component';
 import { ProjectCreateComponent } from './pages/project/project-create/project-create.component';
 import { ProjectListComponent } from './pages/project/project-list/project-list.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 const routes: Routes = [

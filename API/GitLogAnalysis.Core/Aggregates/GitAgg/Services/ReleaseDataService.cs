@@ -1,4 +1,5 @@
-﻿using GitLogAnalysis.Core.Aggregates.GitAgg.Dtos;
+﻿using CsvHelper;
+using GitLogAnalysis.Core.Aggregates.GitAgg.Dtos;
 using GitLogAnalysis.Core.Aggregates.GitAgg.Entities;
 using GitLogAnalysis.Core.Aggregates.GitAgg.Interfaces.Repositories;
 using GitLogAnalysis.Core.Aggregates.GitAgg.Interfaces.Services;
@@ -11,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Management.Automation;
@@ -65,7 +67,7 @@ namespace GitLogAnalysis.Core.Aggregates.GitAgg.Services
             var after = $@"--since ""{initialDate}""";
             var dateFormat = $@"--date=format:'%Y-%m-%d %H:%M:%S'";
             var directory = Regex.Replace(frontParams.ProjectData.Directory, @"[\\]", "/");
-           
+
 
             using (PowerShell powershell = PowerShell.Create())
             {
@@ -103,13 +105,19 @@ namespace GitLogAnalysis.Core.Aggregates.GitAgg.Services
             var powershellOutput = Regex.Replace(stringJson.ToString(), @"[&]", aspas).Replace("\r\n", ",");
 
             var json = JsonConvert.SerializeObject(powershellOutput);
+
             var jsonResponse = JsonConvert.DeserializeObject(json).ToString();
             var objectList = JsonConvert.DeserializeObject<List<CommitForReleaseDto>>(jsonResponse);
 
+            var csvObjct = File.Create($"{directory}/gitlog_csv.csv");
+            using (var streamWriter = new StreamWriter(csvObjct))
+            using (var csvWriter = new CsvWriter(streamWriter, CultureInfo.CurrentCulture))
+            {
+                csvWriter.WriteRecords(objectList);
+            };
+            
             var addedLines = 0;
             var removedLines = 0;
-
-            // var powershellOutput = Regex.Replace(stringJson.ToString(), @"[&]", aspas).Replace("\r\n", ",");
 
             foreach (var item in listNumstat)
             {
@@ -140,7 +148,7 @@ namespace GitLogAnalysis.Core.Aggregates.GitAgg.Services
             _releaseDataRepository.Create(release);
             var commit = _unityOfWork.Commit();
 
-            
+
             return commit
                 ? new ResponseObject<ReleaseData>(true, obj: release)
                 : new ResponseObject<ReleaseData>(false);
@@ -195,7 +203,7 @@ namespace GitLogAnalysis.Core.Aggregates.GitAgg.Services
         public IEnumerable<ReleaseData> GetReleaseByProject(int idProject)
         {
             var release = _releaseDataRepository.GetReleaseByProject(idProject);
-            
+
             return release;
         }
 

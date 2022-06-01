@@ -13,7 +13,7 @@ namespace GitLogAnalysis.API.Configuration
         {
             services.AddSwaggerGen(x =>
             {
-                x.SwaggerDoc("v1", new OpenApiInfo { Title = "Gestao Eventos", Version = "v1" });
+                x.SwaggerDoc("v1", new OpenApiInfo { Title = "GitLogAnalysis", Version = "v1" });
 
                 var securitySchema = new OpenApiSecurityScheme
                 {

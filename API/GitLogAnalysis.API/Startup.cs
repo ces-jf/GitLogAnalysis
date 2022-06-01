@@ -57,7 +57,7 @@ namespace GitLogAnalysis.API
             app.UseSwagger();
             app.UseSwaggerUI(x =>
             {
-                x.SwaggerEndpoint("/swagger/v1/swagger.json", "GestaoEventos v1");
+                x.SwaggerEndpoint("/swagger/v1/swagger.json", "GitLogAnalysis v1");
                 x.RoutePrefix = string.Empty;
             });
 
